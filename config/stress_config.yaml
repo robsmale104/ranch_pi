@@ -1,0 +1,42 @@
+# ─────────────────────────────────────────────────────────────────
+# stress_config.yaml
+# ICEAA 2026 — Ranch Self-Build Cost Engineering Study
+# Stress Scenario: Post-COVID inflation (4.4%)
+# Run with: poetry run python main.py --model config/stress_config.yaml
+# ─────────────────────────────────────────────────────────────────
+
+scenario_name: "Stress Scenario"
+scenario_description: "Post-COVID avg inflation 4.4%, base correlation assumptions"
+
+n_simulations: 10000
+random_seed: 42
+
+inflation_rate: 0.044
+inflation_base_year: 2025
+cpi_factors:
+  "2026": 1.044
+  "2027": 1.090
+  "2028": 1.138
+  "2029": 1.188
+  "2030": 1.240
+
+programme_months: 36
+inservice_start_yr: 2029
+inservice_end_yr: 2040
+total_model_months: 48
+inservice_cbs:
+  - C1.4.1
+  - C1.4.2
+  - C1.4.3
+
+daily_delay_cost_gbp: 2500
+days_per_month: 30.4
+
+driver_order: [MAT, LAB, FUEL, SPEC, ENERGY, REG]
+corr_matrix:
+  - [1.00, 0.50, 0.60, 0.30, 0.20, 0.10]
+  - [0.50, 1.00, 0.40, 0.30, 0.10, 0.30]
+  - [0.60, 0.40, 1.00, 0.20, 0.40, 0.10]
+  - [0.30, 0.30, 0.20, 1.00, 0.10, 0.10]
+  - [0.20, 0.10, 0.40, 0.10, 1.00, 0.20]
+  - [0.10, 0.30, 0.10, 0.10, 0.20, 1.00]

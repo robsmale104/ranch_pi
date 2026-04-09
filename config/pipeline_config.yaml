@@ -1,0 +1,54 @@
+base_year: 2026
+currency: GBP
+data_dir: data
+log_file: results/pipeline_run.log
+main_house_gia_m2: 800
+project: Ranch Self-Build — North Devon
+results_dir: results
+source_file: /home/claude/ranch_pipeline/Self_Build_Costs_Data.xlsx
+stages:
+- critical: true
+  depends_on: null
+  description: Load, validate and clean source data
+  name: data_prep
+  script: src/stage_01_data_prep.py
+  test: tests/test_01_data_prep.py
+- critical: true
+  depends_on: data_prep
+  description: Monte Carlo cost simulation with inflation and correlation
+  name: cost_model
+  script: src/stage_02_cost_model.py
+  test: tests/test_02_cost_model.py
+- name: sensitivity
+  script: src/stage_04_sensitivity.py
+  test: tests/test_04_sensitivity.py
+  critical: false
+  depends_on: cost_model
+  description: Sensitivity analysis — driver uplifts, tornado chart
+- critical: true
+  depends_on: cost_model
+  description: Monte Carlo schedule risk and delay cost analysis
+  name: schedule_model
+  script: src/stage_03_schedule_model.py
+  test: tests/test_03_schedule_model.py
+validation:
+  corr_matrix_size:
+    critical: true
+    expected: 6
+    message: Correlation matrix must be 6x6 matching driver_order
+  inflation_rate:
+    critical: true
+    max: 0.15
+    message: Inflation rate must be between 0.1% and 15%
+    min: 0.001
+  inservice_yr_order:
+    critical: true
+    message: inservice_start_yr must be less than inservice_end_yr
+  n_simulations:
+    critical: true
+    max: 100000
+    message: Simulations must be between 1,000 and 100,000
+    min: 1000
+  source_file_exists:
+    critical: true
+    message: Source Excel file must exist at the path specified
