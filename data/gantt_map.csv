@@ -1,0 +1,67 @@
+gantt_index,stream_label,start_month,end_month,duration_months,inservice_year
+2,PM Appointment & Brief,1,2,2,
+3,Pre-app & Ecology Surveys,1,4,4,
+4,Topographic & Ground Investigation,2,4,3,
+5,Planning Application,2,5,4,
+7,Architectural Design (RIBA 2-3),3,7,5,
+8,Structural & MEP Engineering,5,9,5,
+9,Contractor Tendering & Appointment,7,11,5,
+10,DNO Grid Connection Application,3,12,10,
+11,Long Lead: Kitchen / Orangery / Steel,6,12,7,
+12,Long Lead: Solar / Wind / Battery,6,11,6,
+13,Long Lead: Greenhouse,7,12,6,
+16,Mains Water Connection,10,13,4,
+17,Borehole & Pump,10,12,3,
+18,Septic Treatment Plant,10,12,3,
+19,Site Drainage & Swales,10,14,5,
+20,Grid Connection Install,12,15,4,
+21,Site Security CCTV & Gates,28,31,4,
+23,Main House — Substructure,11,15,5,
+24,Main House — Superstructure Walls,14,19,6,
+25,Main House — Roof Structure,18,22,5,
+26,Main House — External Envelope,20,25,6,
+27,Main House — First Fix MEP,22,26,5,
+28,Main House — Internal Walls,23,26,4,
+29,Main House — Plaster & Insulation,25,28,4,
+30,Main House — Second Fix MEP,27,30,4,
+31,Main House — Finishes,29,32,4,
+32,Main House — Kitchen & Utility Fitout,30,33,4,
+33,Main House — Basement Fitout,28,33,6,
+34,Main House — Orangery & Outdoor Kitchen,27,31,5,
+36,Annexes — Structure & Roof,14,21,8,
+37,Annexes — Envelope & Fitout,20,28,9,
+38,Annexes — MEP & Finishes,26,31,6,
+40,Garage — Structure Roof & Fitout,12,20,9,
+41,Barns — Foundations & Steel Frame,12,18,7,
+42,Barns — Cladding MEP & Fitout,17,23,7,
+44,Gym — Structure & Shell,14,19,6,
+45,Gym — Fitout,25,32,8,
+47,Energy — Wind Turbine,20,24,5,
+48,Energy — Solar PV,24,27,4,
+49,Energy — Battery Storage,26,28,3,
+50,Energy — Water Collection,25,28,4,
+52,Farm — Fencing & Gates,15,22,8,
+53,Farm — Irrigation & Troughs,18,23,6,
+54,Farm — Animal Housing & Coops,20,26,7,
+55,Farm — Greenhouse & Poly Tunnel,18,24,7,
+56,Farm — Veg Beds & Orchard,24,29,6,
+57,Farm — Equipment Delivery,30,32,3,
+59,Landscape — Wild Pond,20,24,5,
+60,Landscape — Driveway & Paving,22,27,6,
+61,Landscape — Garden,27,33,7,
+62,Landscape — Furniture & Lighting,31,33,3,
+64,Testing — MEP & Utilities Commissioning,31,34,4,
+65,Testing — Building Control,32,35,4,
+66,Testing — Snagging & Handover,34,36,3,
+0,In-Service (2029),37,48,12,2029
+0,In-Service (2030),49,60,12,2030
+0,In-Service (2031),61,72,12,2031
+0,In-Service (2032),73,84,12,2032
+0,In-Service (2033),85,96,12,2033
+0,In-Service (2034),97,108,12,2034
+0,In-Service (2035),109,120,12,2035
+0,In-Service (2036),121,132,12,2036
+0,In-Service (2037),133,144,12,2037
+0,In-Service (2038),145,156,12,2038
+0,In-Service (2039),157,168,12,2039
+0,In-Service (2040),169,180,12,2040

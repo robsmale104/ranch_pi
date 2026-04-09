@@ -1,6 +1,7 @@
+[tool.poetry]
 name = "ranch-pipeline"
 version = "0.1.0"
-description = "ICEAA 2026 — Ranch Self-Build Cost Engineering Pipeline (Workflow 3)"
+description = "ICEAA 2026 — Ranch Self-Build Cost Engineering Pipeline"
 authors = ["Rob Smale"]
 package-mode = false
 
@@ -10,9 +11,10 @@ pandas = "^2.0"
 numpy = "^1.26"
 openpyxl = "^3.1"
 scipy = "^1.11"
-matplotlib = "^3.8"
 pyyaml = "^6.0"
+matplotlib = "^3.7"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+

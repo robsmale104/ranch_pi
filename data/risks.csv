@@ -1,0 +1,11 @@
+risk_id,description,likelihood,dur_low,dur_ml,dur_high,cost_low,cost_ml,cost_high,mitigation
+R1,Supply chain delays for materials,High,10.0,30.0,60.0,50000.0,150000.0,300000.0,"Pre-order long-lead items, multiple suppliers, maintain buffer stock"
+R2,Extreme weather delays,Medium,5.0,15.0,30.0,20000.0,50000.0,100000.0,"Schedule build in optimal weather, cover storage for materials, add schedule buffer"
+R3,Labour shortages / strikes,Medium,10.0,25.0,50.0,30000.0,100000.0,250000.0,"Lock-in contractors early, cross-train staff, include labour contingency"
+R4,Regulatory / permit delays,Medium,15.0,30.0,60.0,10000.0,50000.0,100000.0,"Engage local authorities early, submit complete permit applications"
+R5,Utility connection delays,Medium,5.0,15.0,30.0,20000.0,50000.0,100000.0,"Liaise early with utilities, schedule in parallel, provisional costs for temporary solutions"
+R6,Cost escalation for key materials,High,0.0,0.0,0.0,50000.0,200000.0,500000.0,"Use parametric models, fixed-price contracts, escalation contingency"
+R7,Equipment failure on site,Low,1.0,3.0,7.0,5000.0,15000.0,50000.0,"Regular maintenance, backup rental, insurance coverage"
+R8,Environmental / ecological issues,Medium,10.0,20.0,40.0,20000.0,50000.0,150000.0,"Conduct ecological surveys, adjust design if needed"
+R9,Integration issues (sustainable systems),Medium,5.0,15.0,30.0,30000.0,100000.0,250000.0,"Engage experienced MEP engineers, phased commissioning"
+R10,Operational risk post-build,Medium,0.0,0.0,0.0,10000.0,25000.0,50000.0,"Develop SOPs, train staff, schedule routine maintenance"

@@ -5,7 +5,7 @@ log_file: results/pipeline_run.log
 main_house_gia_m2: 800
 project: Ranch Self-Build — North Devon
 results_dir: results
-source_file: /home/claude/ranch_pipeline/Self_Build_Costs_Data.xlsx
+source_file: /Users/robsmalehome/Projects/ranch_pipeline/Self_Build_Costs_Data.xlsx
 stages:
 - critical: true
   depends_on: null
