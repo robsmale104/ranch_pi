@@ -1,12 +1,12 @@
 {
-  "base_p50": 4283977,
-  "base_p90": 5267251,
+  "base_p50": 6585510,
+  "base_p90": 7869026,
   "worst_single_driver": "MAT",
-  "worst_single_p50_swing": 607398,
-  "combined_p50": 6021265,
-  "combined_p90": 8939368,
-  "combined_p50_swing": 1737288,
-  "combined_p90_swing": 3672117,
+  "worst_single_p50_swing": 688848,
+  "combined_p50": 8879945,
+  "combined_p90": 12595128,
+  "combined_p50_swing": 2294435,
+  "combined_p90_swing": 4726102,
   "n_simulations": 10000,
   "scenario": "Stress Scenario"
 }

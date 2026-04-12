@@ -23,7 +23,7 @@ cpi_factors:
 programme_months: 36
 inservice_start_yr: 2029
 inservice_end_yr: 2040
-total_model_months: 48
+total_model_months: 180
 inservice_cbs:
 - C1.4.1
 - C1.4.2
