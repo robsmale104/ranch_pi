@@ -1,156 +1,156 @@
-2026-04-09 20:11:27 | INFO     | ============================================================
-2026-04-09 20:11:27 | INFO     | PIPELINE START
-2026-04-09 20:11:27 | INFO     | Scenario: Base Scenario
-2026-04-09 20:11:27 | INFO     | Source:   Self_Build_Costs_Data.xlsx
-2026-04-09 20:11:27 | INFO     | Sims:     10,000
-2026-04-09 20:11:27 | INFO     | Inflation:1.56%
-2026-04-09 20:11:27 | INFO     | ============================================================
-2026-04-09 20:11:27 | INFO     | 
-2026-04-09 20:11:27 | INFO     | ── STAGE: DATA_PREP ─────────────────────────────
-2026-04-09 20:11:27 | INFO     |    Load, validate and clean source data
-2026-04-09 20:11:46 | INFO     | Stage 01 — Data Preparation starting
-2026-04-09 20:11:46 | INFO     | Saved data/assumptions.json
-2026-04-09 20:11:46 | INFO     | Loading /Users/robsmalehome/Projects/ranch_pipeline/Self_Build_Costs_Data.xlsx
-2026-04-09 20:11:46 | INFO     | Cost_Lines: 96 INPUT, 16 ROLLUP
-2026-04-09 20:11:46 | INFO     | In-service expanded: 36 rows (3 lines x 12 years)
-2026-04-09 20:11:46 | INFO     | All 129 rows mapped to Gantt index
-2026-04-09 20:11:46 | INFO     | Validation passed: ordering, duplicates OK
-2026-04-09 20:11:46 | INFO     | Saved data/clean_inputs.csv (129 rows)
-2026-04-09 20:11:46 | INFO     | Saved data/gantt_map.csv (66 rows)
-2026-04-09 20:11:46 | INFO     | Saved data/risks.csv (10 risks)
-2026-04-09 20:11:46 | INFO     | Stage 01 complete
-2026-04-09 20:11:46 | INFO     |    Stage completed in 19.0s
-2026-04-09 20:11:46 | INFO     |    Running test: test_01_data_prep.py
-2026-04-09 20:11:47 | INFO     |    =======================================================
-2026-04-09 20:11:47 | INFO     |    TEST SUITE — Notebook 01: Data Preparation
-2026-04-09 20:11:47 | INFO     |    =======================================================
-2026-04-09 20:11:47 | INFO     |    T1-01 PASS: data/clean_inputs.csv exists
-2026-04-09 20:11:47 | INFO     |    T1-01 PASS: data/gantt_map.csv exists
-2026-04-09 20:11:47 | INFO     |    T1-01 PASS: data/risks.csv exists
-2026-04-09 20:11:47 | INFO     |    T1-01 PASS: data/assumptions.json exists
-2026-04-09 20:11:47 | INFO     |    T1-02 PASS: All 129 rows are INPUT type
-2026-04-09 20:11:47 | INFO     |    T1-03 PASS: All build rows satisfy Low <= ML <= High
-2026-04-09 20:11:47 | INFO     |    T1-04 PASS: No duplicate CBS codes
-2026-04-09 20:11:47 | INFO     |    T1-05 PASS: All rows have gantt_index
-2026-04-09 20:11:47 | INFO     |    T1-06 PASS: All build rows have duration ML
-2026-04-09 20:11:47 | INFO     |    T1-07 PASS: In-service 3 lines x 12 years = 36 rows
-2026-04-09 20:11:47 | INFO     |    T1-08 PASS: Gantt map valid (66 rows)
-2026-04-09 20:11:47 | INFO     |    T1-09 PASS: 12 in-service Gantt rows (2029–2040)
-2026-04-09 20:11:47 | INFO     |    T1-10 PASS: All required assumption keys present
-2026-04-09 20:11:47 | INFO     |    T1-11 PASS: Build ML total = £3,510,300
-2026-04-09 20:11:47 | INFO     |    T1-12 PASS: Annual in-service ML = £129,000
-2026-04-09 20:11:47 | INFO     |    =======================================================
-2026-04-09 20:11:47 | INFO     |    ✅ All tests passed — safe to run Notebook 02
-2026-04-09 20:11:47 | INFO     |    Tests PASSED in 0.4s
-2026-04-09 20:11:47 | INFO     | 
-2026-04-09 20:11:47 | INFO     | ── STAGE: COST_MODEL ─────────────────────────────
-2026-04-09 20:11:47 | INFO     |    Monte Carlo cost simulation with inflation and correlation
-2026-04-09 20:12:07 | INFO     | Stage 02 — Cost Model starting
-2026-04-09 20:12:07 | INFO     | Correlation setup: 6 drivers, Cholesky OK
-2026-04-09 20:12:07 | INFO     | MC loop complete — 129 rows processed, 0 skipped
-2026-04-09 20:12:07 | INFO     | P10=£3,235,130  P50=£4,010,350  P90=£4,930,213
-2026-04-09 20:12:07 | INFO     | P90/P50=1.23x  Peak spend: M30
-2026-04-09 20:12:08 | INFO     | Chart saved: results/cost_model_charts.png
-2026-04-09 20:12:08 | INFO     | Stage 02 complete
-2026-04-09 20:12:08 | INFO     |    Stage completed in 21.4s
-2026-04-09 20:12:08 | INFO     |    Running test: test_02_cost_model.py
-2026-04-09 20:12:09 | INFO     |    =======================================================
-2026-04-09 20:12:09 | INFO     |    TEST SUITE — Notebook 02: Cost Model
-2026-04-09 20:12:09 | INFO     |    =======================================================
-2026-04-09 20:12:09 | INFO     |    T2-01 PASS: results/cost_mc_results.csv exists
-2026-04-09 20:12:09 | INFO     |    T2-01 PASS: results/monthly_profile.npy exists
-2026-04-09 20:12:09 | INFO     |    T2-01 PASS: results/mc_summary.json exists
-2026-04-09 20:12:09 | INFO     |    T2-02 PASS: 10,000 simulations present
-2026-04-09 20:12:09 | INFO     |    T2-03 PASS: Column total_cost present
-2026-04-09 20:12:09 | INFO     |    T2-03 PASS: Column build_cost present
-2026-04-09 20:12:09 | INFO     |    T2-03 PASS: Column inservice_cost present
-2026-04-09 20:12:09 | INFO     |    T2-04 PASS: All totals positive
-2026-04-09 20:12:09 | INFO     |    T2-05 PASS: P10=£3,235,130  P50=£4,010,350  P90=£4,930,213
-2026-04-09 20:12:09 | INFO     |    T2-06 PASS: Build P50 +10.2% vs sum of ML (inflation uplift expected)
-2026-04-09 20:12:09 | INFO     |    T2-07 PASS: Inflation uplift = 10.2%
-2026-04-09 20:12:09 | INFO     |    T2-08 PASS: P90/P50 ratio = 1.23
-2026-04-09 20:12:09 | INFO     |    T2-09 PASS: Matrix shape = (10000, 48)
-2026-04-09 20:12:09 | INFO     |    T2-10 PASS: Matrix row sums match total_cost (max diff 0.000%)
-2026-04-09 20:12:09 | INFO     |    T2-11 PASS: No negative values in matrix
-2026-04-09 20:12:09 | INFO     |    T2-12 PASS: Peak monthly spend at M30
-2026-04-09 20:12:09 | INFO     |    T2-13 PASS: mc_summary.json consistent with results
-2026-04-09 20:12:09 | INFO     |    =======================================================
-2026-04-09 20:12:09 | INFO     |    ✅ All tests passed — safe to run Notebook 03
-2026-04-09 20:12:09 | INFO     |    Tests PASSED in 0.4s
-2026-04-09 20:12:09 | INFO     | 
-2026-04-09 20:12:09 | INFO     | ── STAGE: SENSITIVITY ─────────────────────────────
-2026-04-09 20:12:09 | INFO     |    Sensitivity analysis — driver uplifts, tornado chart
-2026-04-09 20:12:09 | INFO     | Stage 04 — Sensitivity Analysis starting
-2026-04-09 20:12:09 | INFO     |   MAT      P50=£4,577,865  swing=£+567,515  (87 rows)
-2026-04-09 20:12:09 | INFO     |   LAB      P50=£4,351,342  swing=£+340,992  (70 rows)
-2026-04-09 20:12:09 | INFO     |   FUEL     P50=£4,335,427  swing=£+325,077  (46 rows)
-2026-04-09 20:12:09 | INFO     |   SPEC     P50=£4,233,186  swing=£+222,836  (53 rows)
-2026-04-09 20:12:09 | INFO     |   ENERGY   P50=£4,049,986  swing=£+39,636  (19 rows)
-2026-04-09 20:12:09 | INFO     |   REG      P50=£4,065,067  swing=£+54,717  (19 rows)
-2026-04-09 20:12:09 | INFO     |   ALL      P50=£5,633,079  swing=£+1,622,729  (129 rows)
-2026-04-09 20:12:10 | INFO     | Worst single driver: MAT (+£567,515)
-2026-04-09 20:12:10 | INFO     | Combined stress P50: £5,633,079 (+£1,622,729)
-2026-04-09 20:12:10 | INFO     | Chart saved: results/sensitivity_charts.png
-2026-04-09 20:12:10 | INFO     | Stage 04 complete
-2026-04-09 20:12:10 | INFO     |    Stage completed in 1.1s
-2026-04-09 20:12:10 | INFO     |    Running test: test_04_sensitivity.py
-2026-04-09 20:12:10 | INFO     |    =======================================================
-2026-04-09 20:12:10 | INFO     |    TEST SUITE — Notebook 04: Sensitivity Analysis
-2026-04-09 20:12:10 | INFO     |    =======================================================
-2026-04-09 20:12:10 | INFO     |    T4-01 PASS: results/sensitivity_results.csv exists
-2026-04-09 20:12:10 | INFO     |    T4-01 PASS: results/sensitivity_summary.json exists
-2026-04-09 20:12:10 | INFO     |    T4-02 PASS: All 8 scenarios present
-2026-04-09 20:12:10 | INFO     |    T4-03 PASS: All scenario P50s >= base P50
-2026-04-09 20:12:10 | INFO     |    T4-04 PASS: P10 < P50 < P90 for all scenarios
-2026-04-09 20:12:10 | INFO     |    T4-05 PASS: Worst driver = MAT (+£567,515)
-2026-04-09 20:12:10 | INFO     |    T4-06 PASS: Combined P50 £5,633,079 > all single drivers
-2026-04-09 20:12:10 | INFO     |    T4-07 PASS: p50_swing values consistent
-2026-04-09 20:12:10 | INFO     |    T4-08 PASS: sensitivity_summary.json consistent
-2026-04-09 20:12:10 | INFO     |    T4-09 PASS: Row counts plausible (FUEL: 46 rows)
-2026-04-09 20:12:10 | INFO     |    =======================================================
-2026-04-09 20:12:10 | INFO     |    ✅ All tests passed — Sensitivity analysis validated
-2026-04-09 20:12:10 | INFO     |    Tests PASSED in 0.4s
-2026-04-09 20:12:10 | INFO     | 
-2026-04-09 20:12:10 | INFO     | ── STAGE: SCHEDULE_MODEL ─────────────────────────────
-2026-04-09 20:12:10 | INFO     |    Monte Carlo schedule risk and delay cost analysis
-2026-04-09 20:12:10 | INFO     | Stage 03 — Schedule Model starting
-2026-04-09 20:12:10 | INFO     | Stream durations built: 54 streams
-2026-04-09 20:14:22 | INFO     | Schedule MC complete: 10,000 simulations
-2026-04-09 20:14:22 | INFO     | P10=36.5m  P50=37.1m  P90=37.7m
-2026-04-09 20:14:22 | INFO     | P50 delay: 1.1m  cost: £82,544
-2026-04-09 20:14:22 | INFO     | P90 delay: 1.7m  cost: £128,427
-2026-04-09 20:14:22 | INFO     | Chart saved: results/schedule_model_charts.png
-2026-04-09 20:14:22 | INFO     | Stage 03 complete
-2026-04-09 20:14:22 | INFO     |    Stage completed in 132.4s
-2026-04-09 20:14:22 | INFO     |    Running test: test_03_schedule_model.py
-2026-04-09 20:14:23 | INFO     |    =======================================================
-2026-04-09 20:14:23 | INFO     |    TEST SUITE — Notebook 03: Schedule Model
-2026-04-09 20:14:23 | INFO     |    =======================================================
-2026-04-09 20:14:23 | INFO     |    T3-01 PASS: results/schedule_mc_results.csv exists
-2026-04-09 20:14:23 | INFO     |    T3-01 PASS: results/schedule_summary.json exists
-2026-04-09 20:14:23 | INFO     |    T3-02 PASS: 10,000 simulations present
-2026-04-09 20:14:23 | INFO     |    T3-03 PASS: Column phase1_end present
-2026-04-09 20:14:23 | INFO     |    T3-03 PASS: Column phase2_end present
-2026-04-09 20:14:23 | INFO     |    T3-03 PASS: Column phase3_end present
-2026-04-09 20:14:23 | INFO     |    T3-03 PASS: Column phase4_end present
-2026-04-09 20:14:23 | INFO     |    T3-03 PASS: Column project_end present
-2026-04-09 20:14:23 | INFO     |    T3-04 PASS: Phase 1 always ends before Phase 3
-2026-04-09 20:14:23 | INFO     |    T3-05 PASS: Phase 2/3 overlap within tolerance (0 sims)
-2026-04-09 20:14:23 | INFO     |    T3-06 PASS: P50 end = 37.1 months
-2026-04-09 20:14:23 | INFO     |    T3-07 PASS: P10=36.5  P50=37.1  P90=37.7
-2026-04-09 20:14:23 | INFO     |    T3-08 PASS: P90–P10 spread = 1.15m (narrow spread expected — parallel streams diversify risk)
-2026-04-09 20:14:23 | INFO     |    T3-09 PASS: No simulations complete in under 18 months
-2026-04-09 20:14:23 | INFO     |    T3-10 PASS: P50 is 1.03x planned end
-2026-04-09 20:14:23 | INFO     |    T3-11 PASS: schedule_summary.json consistent
-2026-04-09 20:14:23 | INFO     |    T3-12 PASS: P90 delay cost = £128,427
-2026-04-09 20:14:23 | INFO     |    =======================================================
-2026-04-09 20:14:23 | INFO     |    ✅ All tests passed — Notebooks 01–03 complete
-2026-04-09 20:14:23 | INFO     |    Tests PASSED in 0.4s
-2026-04-09 20:14:23 | INFO     | 
-2026-04-09 20:14:23 | INFO     | ============================================================
-2026-04-09 20:14:23 | INFO     | PIPELINE COMPLETE — all stages passed
-2026-04-09 20:14:23 | INFO     | ============================================================
-2026-04-09 20:14:23 | INFO     | Run summary saved: results/pipeline_run_summary.json
-2026-04-09 20:14:23 | INFO     | Full log saved:    results/pipeline_run.log
-2026-04-09 20:14:23 | INFO     | 
-Total pipeline time: 175.5s
+2026-04-12 15:07:39 | INFO     | ============================================================
+2026-04-12 15:07:39 | INFO     | PIPELINE START
+2026-04-12 15:07:39 | INFO     | Scenario: Stress Scenario
+2026-04-12 15:07:39 | INFO     | Source:   Self_Build_Costs_Data.xlsx
+2026-04-12 15:07:39 | INFO     | Sims:     10,000
+2026-04-12 15:07:39 | INFO     | Inflation:4.40%
+2026-04-12 15:07:39 | INFO     | ============================================================
+2026-04-12 15:07:39 | INFO     | 
+2026-04-12 15:07:39 | INFO     | ── STAGE: DATA_PREP ─────────────────────────────
+2026-04-12 15:07:39 | INFO     |    Load, validate and clean source data
+2026-04-12 15:07:39 | INFO     | Stage 01 — Data Preparation starting
+2026-04-12 15:07:39 | INFO     | Saved data/assumptions.json
+2026-04-12 15:07:39 | INFO     | Loading /Users/robsmalehome/Projects/ranch_pipeline/Self_Build_Costs_Data.xlsx
+2026-04-12 15:07:39 | INFO     | Cost_Lines: 96 INPUT, 16 ROLLUP
+2026-04-12 15:07:39 | INFO     | In-service expanded: 36 rows (3 lines x 12 years)
+2026-04-12 15:07:40 | INFO     | All 129 rows mapped to Gantt index
+2026-04-12 15:07:40 | INFO     | Validation passed: ordering, duplicates OK
+2026-04-12 15:07:40 | INFO     | Saved data/clean_inputs.csv (129 rows)
+2026-04-12 15:07:40 | INFO     | Saved data/gantt_map.csv (66 rows)
+2026-04-12 15:07:40 | INFO     | Saved data/risks.csv (10 risks)
+2026-04-12 15:07:40 | INFO     | Stage 01 complete
+2026-04-12 15:07:40 | INFO     |    Stage completed in 0.5s
+2026-04-12 15:07:40 | INFO     |    Running test: test_01_data_prep.py
+2026-04-12 15:07:40 | INFO     |    =======================================================
+2026-04-12 15:07:40 | INFO     |    TEST SUITE — Notebook 01: Data Preparation
+2026-04-12 15:07:40 | INFO     |    =======================================================
+2026-04-12 15:07:40 | INFO     |    T1-01 PASS: data/clean_inputs.csv exists
+2026-04-12 15:07:40 | INFO     |    T1-01 PASS: data/gantt_map.csv exists
+2026-04-12 15:07:40 | INFO     |    T1-01 PASS: data/risks.csv exists
+2026-04-12 15:07:40 | INFO     |    T1-01 PASS: data/assumptions.json exists
+2026-04-12 15:07:40 | INFO     |    T1-02 PASS: All 129 rows are INPUT type
+2026-04-12 15:07:40 | INFO     |    T1-03 PASS: All build rows satisfy Low <= ML <= High
+2026-04-12 15:07:40 | INFO     |    T1-04 PASS: No duplicate CBS codes
+2026-04-12 15:07:40 | INFO     |    T1-05 PASS: All rows have gantt_index
+2026-04-12 15:07:40 | INFO     |    T1-06 PASS: All build rows have duration ML
+2026-04-12 15:07:40 | INFO     |    T1-07 PASS: In-service 3 lines x 12 years = 36 rows
+2026-04-12 15:07:40 | INFO     |    T1-08 PASS: Gantt map valid (66 rows)
+2026-04-12 15:07:40 | INFO     |    T1-09 PASS: 12 in-service Gantt rows (2029–2040)
+2026-04-12 15:07:40 | INFO     |    T1-10 PASS: All required assumption keys present
+2026-04-12 15:07:40 | INFO     |    T1-11 PASS: Build ML total = £3,510,300
+2026-04-12 15:07:40 | INFO     |    T1-12 PASS: Annual in-service ML = £129,000
+2026-04-12 15:07:40 | INFO     |    =======================================================
+2026-04-12 15:07:40 | INFO     |    ✅ All tests passed — safe to run Notebook 02
+2026-04-12 15:07:40 | INFO     |    Tests PASSED in 0.4s
+2026-04-12 15:07:40 | INFO     | 
+2026-04-12 15:07:40 | INFO     | ── STAGE: COST_MODEL ─────────────────────────────
+2026-04-12 15:07:40 | INFO     |    Monte Carlo cost simulation with inflation and correlation
+2026-04-12 15:07:41 | INFO     | Stage 02 — Cost Model starting
+2026-04-12 15:07:41 | INFO     | Correlation setup: 6 drivers, Cholesky OK
+2026-04-12 15:07:41 | INFO     | MC loop complete — 129 rows processed, 0 skipped
+2026-04-12 15:07:41 | INFO     | P10=£3,456,539  P50=£4,283,977  P90=£5,267,251
+2026-04-12 15:07:41 | INFO     | P90/P50=1.23x  Peak spend: M30
+2026-04-12 15:07:42 | INFO     | Chart saved: results/cost_model_charts.png
+2026-04-12 15:07:42 | INFO     | Stage 02 complete
+2026-04-12 15:07:42 | INFO     |    Stage completed in 1.7s
+2026-04-12 15:07:42 | INFO     |    Running test: test_02_cost_model.py
+2026-04-12 15:07:42 | INFO     |    =======================================================
+2026-04-12 15:07:42 | INFO     |    TEST SUITE — Notebook 02: Cost Model
+2026-04-12 15:07:42 | INFO     |    =======================================================
+2026-04-12 15:07:42 | INFO     |    T2-01 PASS: results/cost_mc_results.csv exists
+2026-04-12 15:07:42 | INFO     |    T2-01 PASS: results/monthly_profile.npy exists
+2026-04-12 15:07:42 | INFO     |    T2-01 PASS: results/mc_summary.json exists
+2026-04-12 15:07:42 | INFO     |    T2-02 PASS: 10,000 simulations present
+2026-04-12 15:07:42 | INFO     |    T2-03 PASS: Column total_cost present
+2026-04-12 15:07:42 | INFO     |    T2-03 PASS: Column build_cost present
+2026-04-12 15:07:42 | INFO     |    T2-03 PASS: Column inservice_cost present
+2026-04-12 15:07:42 | INFO     |    T2-04 PASS: All totals positive
+2026-04-12 15:07:42 | INFO     |    T2-05 PASS: P10=£3,456,539  P50=£4,283,977  P90=£5,267,251
+2026-04-12 15:07:42 | INFO     |    T2-06 PASS: Build P50 +17.5% vs sum of ML (inflation uplift expected)
+2026-04-12 15:07:42 | INFO     |    T2-07 PASS: Inflation uplift = 17.5%
+2026-04-12 15:07:42 | INFO     |    T2-08 PASS: P90/P50 ratio = 1.23
+2026-04-12 15:07:42 | INFO     |    T2-09 PASS: Matrix shape = (10000, 48)
+2026-04-12 15:07:42 | INFO     |    T2-10 PASS: Matrix row sums match total_cost (max diff 0.000%)
+2026-04-12 15:07:42 | INFO     |    T2-11 PASS: No negative values in matrix
+2026-04-12 15:07:42 | INFO     |    T2-12 PASS: Peak monthly spend at M30
+2026-04-12 15:07:42 | INFO     |    T2-13 PASS: mc_summary.json consistent with results
+2026-04-12 15:07:42 | INFO     |    =======================================================
+2026-04-12 15:07:42 | INFO     |    ✅ All tests passed — safe to run Notebook 03
+2026-04-12 15:07:42 | INFO     |    Tests PASSED in 0.4s
+2026-04-12 15:07:42 | INFO     | 
+2026-04-12 15:07:42 | INFO     | ── STAGE: SENSITIVITY ─────────────────────────────
+2026-04-12 15:07:42 | INFO     |    Sensitivity analysis — driver uplifts, tornado chart
+2026-04-12 15:07:42 | INFO     | Stage 04 — Sensitivity Analysis starting
+2026-04-12 15:07:42 | INFO     |   MAT      P50=£4,891,375  swing=£+607,398  (87 rows)
+2026-04-12 15:07:42 | INFO     |   LAB      P50=£4,647,604  swing=£+363,627  (70 rows)
+2026-04-12 15:07:42 | INFO     |   FUEL     P50=£4,633,167  swing=£+349,190  (46 rows)
+2026-04-12 15:07:42 | INFO     |   SPEC     P50=£4,525,473  swing=£+241,496  (53 rows)
+2026-04-12 15:07:42 | INFO     |   ENERGY   P50=£4,328,243  swing=£+44,266  (19 rows)
+2026-04-12 15:07:42 | INFO     |   REG      P50=£4,342,001  swing=£+58,024  (19 rows)
+2026-04-12 15:07:42 | INFO     |   ALL      P50=£6,021,265  swing=£+1,737,288  (129 rows)
+2026-04-12 15:07:43 | INFO     | Worst single driver: MAT (+£607,398)
+2026-04-12 15:07:43 | INFO     | Combined stress P50: £6,021,265 (+£1,737,288)
+2026-04-12 15:07:43 | INFO     | Chart saved: results/sensitivity_charts.png
+2026-04-12 15:07:43 | INFO     | Stage 04 complete
+2026-04-12 15:07:43 | INFO     |    Stage completed in 1.0s
+2026-04-12 15:07:43 | INFO     |    Running test: test_04_sensitivity.py
+2026-04-12 15:07:43 | INFO     |    =======================================================
+2026-04-12 15:07:43 | INFO     |    TEST SUITE — Notebook 04: Sensitivity Analysis
+2026-04-12 15:07:43 | INFO     |    =======================================================
+2026-04-12 15:07:43 | INFO     |    T4-01 PASS: results/sensitivity_results.csv exists
+2026-04-12 15:07:43 | INFO     |    T4-01 PASS: results/sensitivity_summary.json exists
+2026-04-12 15:07:43 | INFO     |    T4-02 PASS: All 8 scenarios present
+2026-04-12 15:07:43 | INFO     |    T4-03 PASS: All scenario P50s >= base P50
+2026-04-12 15:07:43 | INFO     |    T4-04 PASS: P10 < P50 < P90 for all scenarios
+2026-04-12 15:07:43 | INFO     |    T4-05 PASS: Worst driver = MAT (+£607,398)
+2026-04-12 15:07:43 | INFO     |    T4-06 PASS: Combined P50 £6,021,265 > all single drivers
+2026-04-12 15:07:43 | INFO     |    T4-07 PASS: p50_swing values consistent
+2026-04-12 15:07:43 | INFO     |    T4-08 PASS: sensitivity_summary.json consistent
+2026-04-12 15:07:43 | INFO     |    T4-09 PASS: Row counts plausible (FUEL: 46 rows)
+2026-04-12 15:07:43 | INFO     |    =======================================================
+2026-04-12 15:07:43 | INFO     |    ✅ All tests passed — Sensitivity analysis validated
+2026-04-12 15:07:43 | INFO     |    Tests PASSED in 0.4s
+2026-04-12 15:07:43 | INFO     | 
+2026-04-12 15:07:43 | INFO     | ── STAGE: SCHEDULE_MODEL ─────────────────────────────
+2026-04-12 15:07:43 | INFO     |    Monte Carlo schedule risk and delay cost analysis
+2026-04-12 15:07:43 | INFO     | Stage 03 — Schedule Model starting
+2026-04-12 15:07:43 | INFO     | Stream durations built: 54 streams
+2026-04-12 15:09:50 | INFO     | Schedule MC complete: 10,000 simulations
+2026-04-12 15:09:50 | INFO     | P10=36.5m  P50=37.1m  P90=37.7m
+2026-04-12 15:09:50 | INFO     | P50 delay: 1.1m  cost: £82,544
+2026-04-12 15:09:50 | INFO     | P90 delay: 1.7m  cost: £128,427
+2026-04-12 15:09:51 | INFO     | Chart saved: results/schedule_model_charts.png
+2026-04-12 15:09:51 | INFO     | Stage 03 complete
+2026-04-12 15:09:51 | INFO     |    Stage completed in 127.4s
+2026-04-12 15:09:51 | INFO     |    Running test: test_03_schedule_model.py
+2026-04-12 15:09:51 | INFO     |    =======================================================
+2026-04-12 15:09:51 | INFO     |    TEST SUITE — Notebook 03: Schedule Model
+2026-04-12 15:09:51 | INFO     |    =======================================================
+2026-04-12 15:09:51 | INFO     |    T3-01 PASS: results/schedule_mc_results.csv exists
+2026-04-12 15:09:51 | INFO     |    T3-01 PASS: results/schedule_summary.json exists
+2026-04-12 15:09:51 | INFO     |    T3-02 PASS: 10,000 simulations present
+2026-04-12 15:09:51 | INFO     |    T3-03 PASS: Column phase1_end present
+2026-04-12 15:09:51 | INFO     |    T3-03 PASS: Column phase2_end present
+2026-04-12 15:09:51 | INFO     |    T3-03 PASS: Column phase3_end present
+2026-04-12 15:09:51 | INFO     |    T3-03 PASS: Column phase4_end present
+2026-04-12 15:09:51 | INFO     |    T3-03 PASS: Column project_end present
+2026-04-12 15:09:51 | INFO     |    T3-04 PASS: Phase 1 always ends before Phase 3
+2026-04-12 15:09:51 | INFO     |    T3-05 PASS: Phase 2/3 overlap within tolerance (0 sims)
+2026-04-12 15:09:51 | INFO     |    T3-06 PASS: P50 end = 37.1 months
+2026-04-12 15:09:51 | INFO     |    T3-07 PASS: P10=36.5  P50=37.1  P90=37.7
+2026-04-12 15:09:51 | INFO     |    T3-08 PASS: P90–P10 spread = 1.15m (narrow spread expected — parallel streams diversify risk)
+2026-04-12 15:09:51 | INFO     |    T3-09 PASS: No simulations complete in under 18 months
+2026-04-12 15:09:51 | INFO     |    T3-10 PASS: P50 is 1.03x planned end
+2026-04-12 15:09:51 | INFO     |    T3-11 PASS: schedule_summary.json consistent
+2026-04-12 15:09:51 | INFO     |    T3-12 PASS: P90 delay cost = £128,427
+2026-04-12 15:09:51 | INFO     |    =======================================================
+2026-04-12 15:09:51 | INFO     |    ✅ All tests passed — Notebooks 01–03 complete
+2026-04-12 15:09:51 | INFO     |    Tests PASSED in 0.4s
+2026-04-12 15:09:51 | INFO     | 
+2026-04-12 15:09:51 | INFO     | ============================================================
+2026-04-12 15:09:51 | INFO     | PIPELINE COMPLETE — all stages passed
+2026-04-12 15:09:51 | INFO     | ============================================================
+2026-04-12 15:09:51 | INFO     | Run summary saved: results/pipeline_run_summary.json
+2026-04-12 15:09:51 | INFO     | Full log saved:    results/pipeline_run.log
+2026-04-12 15:09:51 | INFO     | 
+Total pipeline time: 132.1s

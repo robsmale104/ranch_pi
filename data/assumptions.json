@@ -5,14 +5,14 @@
   "main_house_gia_m2": 800,
   "n_simulations": 10000,
   "random_seed": 42,
-  "inflation_rate": 0.0156,
+  "inflation_rate": 0.044,
   "inflation_base_year": 2025,
   "cpi_factors": {
-    "2026": 1.0156,
-    "2027": 1.0314,
-    "2028": 1.0474,
-    "2029": 1.0637,
-    "2030": 1.0802
+    "2026": 1.044,
+    "2027": 1.09,
+    "2028": 1.138,
+    "2029": 1.188,
+    "2030": 1.24
   },
   "driver_order": [
     "MAT",
@@ -83,5 +83,5 @@
   ],
   "daily_delay_cost_gbp": 2500,
   "days_per_month": 30.4,
-  "scenario_name": "Base Scenario"
+  "scenario_name": "Stress Scenario"
 }

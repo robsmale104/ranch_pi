@@ -1,16 +1,16 @@
 {
   "n_simulations": 10000,
   "n_months": 48,
-  "total_p10": 3235130,
-  "total_p50": 4010350,
-  "total_p90": 4930213,
-  "total_mean": 4047911,
-  "build_p50": 3867256,
-  "inservice_p50": 143178,
-  "p90_p50_ratio": 1.229,
-  "inflation_rate": 0.0156,
+  "total_p10": 3456539,
+  "total_p50": 4283977,
+  "total_p90": 5267251,
+  "total_mean": 4324761,
+  "build_p50": 4124721,
+  "inservice_p50": 159909,
+  "p90_p50_ratio": 1.23,
+  "inflation_rate": 0.044,
   "random_seed": 42,
   "sum_ml_inputs": 3510300,
   "peak_month": 30,
-  "scenario_name": "Base Scenario"
+  "scenario_name": "Stress Scenario"
 }

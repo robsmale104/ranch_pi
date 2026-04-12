@@ -1,17 +1,17 @@
 {
-  "scenario": "Base Scenario",
+  "scenario": "Stress Scenario",
   "pipeline_ok": true,
   "n_simulations": 10000,
-  "inflation_rate": 0.0156,
-  "cost_p10": 3235130,
-  "cost_p50": 4010350,
-  "cost_p90": 4930213,
+  "inflation_rate": 0.044,
+  "cost_p10": 3456539,
+  "cost_p50": 4283977,
+  "cost_p90": 5267251,
   "schedule_p50_months": 37.1,
   "schedule_p90_months": 37.7,
   "p50_delay_cost": 82544,
   "p90_delay_cost": 128427,
   "sens_worst_driver": "MAT",
-  "sens_worst_swing": 567515,
-  "sens_combined_p50": 5633079,
-  "sens_combined_p90": 8362515
+  "sens_worst_swing": 607398,
+  "sens_combined_p50": 6021265,
+  "sens_combined_p90": 8939368
 }
