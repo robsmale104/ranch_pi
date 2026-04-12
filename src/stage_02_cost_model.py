@@ -112,7 +112,7 @@ def run(cfg, logger):
         else:
             if g_idx not in gantt_bld.index:
                 skipped += 1; continue
-            start_m = int(gantt_bld.loc[g_idx, "start_month"])
+            start_m = int(gantt_bld.loc[g_idx, "start_month_typo"])
             end_m   = int(gantt_bld.loc[g_idx, "end_month"])
 
         n_active = end_m - start_m + 1

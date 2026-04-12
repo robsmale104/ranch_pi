@@ -10,14 +10,14 @@ scenario_name: "Base Scenario"
 scenario_description: "OBR forward inflation, base correlation assumptions"
 
 # ── Monte Carlo ────────────────────────────────────────────────────
-n_simulations: 10000
+n_simulations: 500
 random_seed: 42
 
 # ── Inflation ──────────────────────────────────────────────────────
 # A-INF-01: OBR forward avg 2025-2029 = 1.56% (base)
 # A-INF-02: Post-COVID avg 2020-2024  = 4.40% (stress)
 # A-INF-03: Long-run avg 1997-2029    = 2.28% (central)
-inflation_rate: 0.0156
+inflation_rate: 0.156
 inflation_base_year: 2025
 cpi_factors:
   2026: 1.0156
@@ -32,20 +32,20 @@ inservice_start_yr: 2029
 inservice_end_yr: 2040
 total_model_months: 48
 inservice_cbs:
-  - C1.4.1
-  - C1.4.2
-  - C1.4.3
+- C1.4.1
+- C1.4.2
+- C1.4.3
 
 # ── Schedule delay cost ────────────────────────────────────────────
 daily_delay_cost_gbp: 2500
 days_per_month: 30.4
 
 # ── Correlation (A-COR-01: prototype assumption) ───────────────────
-driver_order: [MAT, LAB, FUEL, SPEC, ENERGY, REG]
+driver_order: [ MAT, LAB, FUEL, SPEC, ENERGY, REG ]
 corr_matrix:
-  - [1.00, 0.50, 0.60, 0.30, 0.20, 0.10]
-  - [0.50, 1.00, 0.40, 0.30, 0.10, 0.30]
-  - [0.60, 0.40, 1.00, 0.20, 0.40, 0.10]
-  - [0.30, 0.30, 0.20, 1.00, 0.10, 0.10]
-  - [0.20, 0.10, 0.40, 0.10, 1.00, 0.20]
-  - [0.10, 0.30, 0.10, 0.10, 0.20, 1.00]
+- [ 1.00, 0.50, 0.60, 0.30, 0.20, 0.10 ]
+- [ 0.50, 1.00, 0.40, 0.30, 0.10, 0.30 ]
+- [ 0.60, 0.40, 1.00, 0.20, 0.40, 0.10 ]
+- [ 0.30, 0.30, 0.20, 1.00, 0.10, 0.10 ]
+- [ 0.20, 0.10, 0.40, 0.10, 1.00, 0.20 ]
+- [ 0.10, 0.30, 0.10, 0.10, 0.20, 1.00 ]
