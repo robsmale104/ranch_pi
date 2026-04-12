@@ -115,3 +115,42 @@
 2026-04-09 20:12:10 | INFO     |    Monte Carlo schedule risk and delay cost analysis
 2026-04-09 20:12:10 | INFO     | Stage 03 — Schedule Model starting
 2026-04-09 20:12:10 | INFO     | Stream durations built: 54 streams
+2026-04-09 20:14:22 | INFO     | Schedule MC complete: 10,000 simulations
+2026-04-09 20:14:22 | INFO     | P10=36.5m  P50=37.1m  P90=37.7m
+2026-04-09 20:14:22 | INFO     | P50 delay: 1.1m  cost: £82,544
+2026-04-09 20:14:22 | INFO     | P90 delay: 1.7m  cost: £128,427
+2026-04-09 20:14:22 | INFO     | Chart saved: results/schedule_model_charts.png
+2026-04-09 20:14:22 | INFO     | Stage 03 complete
+2026-04-09 20:14:22 | INFO     |    Stage completed in 132.4s
+2026-04-09 20:14:22 | INFO     |    Running test: test_03_schedule_model.py
+2026-04-09 20:14:23 | INFO     |    =======================================================
+2026-04-09 20:14:23 | INFO     |    TEST SUITE — Notebook 03: Schedule Model
+2026-04-09 20:14:23 | INFO     |    =======================================================
+2026-04-09 20:14:23 | INFO     |    T3-01 PASS: results/schedule_mc_results.csv exists
+2026-04-09 20:14:23 | INFO     |    T3-01 PASS: results/schedule_summary.json exists
+2026-04-09 20:14:23 | INFO     |    T3-02 PASS: 10,000 simulations present
+2026-04-09 20:14:23 | INFO     |    T3-03 PASS: Column phase1_end present
+2026-04-09 20:14:23 | INFO     |    T3-03 PASS: Column phase2_end present
+2026-04-09 20:14:23 | INFO     |    T3-03 PASS: Column phase3_end present
+2026-04-09 20:14:23 | INFO     |    T3-03 PASS: Column phase4_end present
+2026-04-09 20:14:23 | INFO     |    T3-03 PASS: Column project_end present
+2026-04-09 20:14:23 | INFO     |    T3-04 PASS: Phase 1 always ends before Phase 3
+2026-04-09 20:14:23 | INFO     |    T3-05 PASS: Phase 2/3 overlap within tolerance (0 sims)
+2026-04-09 20:14:23 | INFO     |    T3-06 PASS: P50 end = 37.1 months
+2026-04-09 20:14:23 | INFO     |    T3-07 PASS: P10=36.5  P50=37.1  P90=37.7
+2026-04-09 20:14:23 | INFO     |    T3-08 PASS: P90–P10 spread = 1.15m (narrow spread expected — parallel streams diversify risk)
+2026-04-09 20:14:23 | INFO     |    T3-09 PASS: No simulations complete in under 18 months
+2026-04-09 20:14:23 | INFO     |    T3-10 PASS: P50 is 1.03x planned end
+2026-04-09 20:14:23 | INFO     |    T3-11 PASS: schedule_summary.json consistent
+2026-04-09 20:14:23 | INFO     |    T3-12 PASS: P90 delay cost = £128,427
+2026-04-09 20:14:23 | INFO     |    =======================================================
+2026-04-09 20:14:23 | INFO     |    ✅ All tests passed — Notebooks 01–03 complete
+2026-04-09 20:14:23 | INFO     |    Tests PASSED in 0.4s
+2026-04-09 20:14:23 | INFO     | 
+2026-04-09 20:14:23 | INFO     | ============================================================
+2026-04-09 20:14:23 | INFO     | PIPELINE COMPLETE — all stages passed
+2026-04-09 20:14:23 | INFO     | ============================================================
+2026-04-09 20:14:23 | INFO     | Run summary saved: results/pipeline_run_summary.json
+2026-04-09 20:14:23 | INFO     | Full log saved:    results/pipeline_run.log
+2026-04-09 20:14:23 | INFO     | 
+Total pipeline time: 175.5s

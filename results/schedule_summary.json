@@ -1,0 +1,14 @@
+{
+  "planned_end_months": 36,
+  "project_p10_months": 36.5,
+  "project_p50_months": 37.1,
+  "project_p90_months": 37.7,
+  "p50_delay_months": 1.1,
+  "p90_delay_months": 1.7,
+  "p50_delay_cost_gbp": 82544,
+  "p90_delay_cost_gbp": 128427,
+  "daily_delay_cost_gbp": 2500,
+  "spread_months": 1.15,
+  "n_simulations": 10000,
+  "random_seed": 42
+}
